@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leidy Beltran - Belleza a Domicilio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Righteous&family=Wix+Madefor+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #D9A9B6;
+            --secondary: #BF7E96;
+            --dark: #40373F;
+            --darker: #262624;
+            --light: #F2E5E4;
+        }
+        
+        body {
+            font-family: 'Barlow Condensed', sans-serif;
+            color: var(--darker);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Wix Madefor Display', sans-serif;
+        }
+        
+        .subtitle {
+            font-family: 'Righteous', cursive;
+        }
+        
+        .bg-primary {
+            background-color: var(--primary);
+        }
+        
+        .bg-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .bg-dark {
+            background-color: var(--dark);
+        }
+        
+        .bg-darker {
+            background-color: var(--darker);
+        }
+        
+        .bg-light {
+            background-color: var(--light);
+        }
+        
+        .text-primary {
+            color: var(--primary);
+        }
+        
+        .text-secondary {
+            color: var(--secondary);
+        }
+        
+        .text-dark {
+            color: var(--dark);
+        }
+        
+        .text-darker {
+            color: var(--darker);
+        }
+        
+        .text-light {
+            color: var(--light);
+        }
+        
+        .border-primary {
+            border-color: var(--primary);
+        }
+        
+        .border-secondary {
+            border-color: var(--secondary);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline-primary {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(217, 169, 182, 0.7), rgba(191, 126, 150, 0.7));
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-overlay {
+            background: linear-gradient(to top, rgba(191, 126, 150, 0.9), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .floating-promo-btn {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .active-nav:after {
+            width: 100%;
+        }
+        
+        .value-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+        
+        @keyframes slideInLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+        
+        @keyframes slideInRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+        .header-scroll {
+            background-color: rgba(242, 229, 228, 0.9) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header-top {
+            background-color: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .header-dark {
+            color: #262624 !important;
+        }
+
+        .header-dark .nav-link {
+            color: #262624 !important;
+        }
+
+        .header-dark .nav-link:after {
+            background-color: #BF7E96 !important;
+        }
+    </style>
+    </head>
+    <body class="relative">
+        <!-- Header/Navbar modificado -->
+        <header id="main-header" class="header-top fixed w-full z-50 py-3">
+            <div class="container mx-auto px-4 flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <img src="imagenes/logoRedondo.png" alt="Logo Leidy Beltran" class="rounded-full h-12 w-12 object-cover border-2 border-primary">
+                    <span class="text-xl font-bold text-darker">Leidy Beltran</span>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#inicio" class="nav-link text-dark font-medium">Inicio</a>
+                    <a href="#servicios" class="nav-link text-dark font-medium">Servicios</a>
+                    <a href="#galeria" class="nav-link text-dark font-medium">Galería</a>
+                    <a href="#nosotros" class="nav-link text-dark font-medium">Quiénes Somos</a>
+                    <a href="#contacto" class="nav-link text-dark font-medium">Contacto</a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden bg-light shadow-lg absolute w-full left-0 right-0">
+                <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                    <a href="#inicio" class="nav-link text-dark font-medium py-2">Inicio</a>
+                    <a href="#servicios" class="nav-link text-dark font-medium py-2">Servicios</a>
+                    <a href="#galeria" class="nav-link text-dark font-medium py-2">Galería</a>
+                    <a href="#nosotros" class="nav-link text-dark font-medium py-2">Quiénes Somos</a>
+                    <a href="#contacto" class="nav-link text-dark font-medium py-2">Contacto</a>
+                </div>
+            </div>
+        </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative pt-24 pb-16 md:pt-32 md:pb-24">
+        <div class="hero-slider">
+            <div class="hero-slide relative h-96 md:h-screen max-h-screen overflow-hidden">
+                <img src="imagenes/banner-manicura-y-pedicura.jpg" alt="Servicios de belleza" class="w-full h-full object-cover">
+                <div class="hero-overlay absolute inset-0 flex items-center justify-center">
+                    <div class="container mx-auto px-4 text-center text-white">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4 slide-in-left">Transformamos tu belleza con pasión</h1>
+                        <p class="text-xl md:text-2xl mb-8 slide-in-right">Servicios profesionales de belleza en la comodidad de tu hogar</p>
+                        <button class="btn-primary px-8 py-3 rounded-full text-lg font-bold bounce">Reserva ahora</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="floating-promo-btn fixed right-6 bottom-6 bg-secondary text-white px-6 py-3 rounded-full shadow-lg z-40 flex items-center">
+            <i class="fas fa-tag mr-2"></i> Ver promociones
+        </button>
+    </section>
+
+    <!-- Servicios Destacados -->
+    <section class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-darker mb-4">Nuestros Servicios</h2>
+            <p class="subtitle text-center text-secondary text-xl mb-12">Descubre lo mejor para ti</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Servicio 1 -->
+                <div class="service-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1604658243842-8259f69f9f1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Manicura Spa" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-darker mb-2">Manicura Spa</h3>
+                        <p class="text-dark mb-4">Tratamiento completo para tus manos</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-secondary font-bold text-lg">Precio a convenir</span>
+                            <a href="#contacto"><button class="btn-primary px-4 py-2 rounded-full text-sm">Reservar</button></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 2 -->
+                <div class="service-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1596704017250-d5eed82a1570?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Pedicura Spa" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-darker mb-2">Pedicura Spa</h3>
+                        <p class="text-dark mb-4">Relajación y cuidado para tus pies</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-secondary font-bold text-lg">Precio a convenir</span>
+                            <a href="#contacto"><button class="btn-primary px-4 py-2 rounded-full text-sm">Reservar</button></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 3 -->
+                <div class="service-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Peinados Elegantes" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-darker mb-2">Peinados Elegantes</h3>
+                        <p class="text-dark mb-4">Estilo perfecto para cualquier ocasión</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-secondary font-bold text-lg">Precio a convenir</span>
+                            <a href="#contacto"><button class="btn-primary px-4 py-2 rounded-full text-sm">Reservar</button></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 4 -->
+                <div class="service-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1596704017250-d5eed82a1570?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Depilación Hindú" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-darker mb-2">Depilación Hindú</h3>
+                        <p class="text-dark mb-4">Técnica tradicional para cejas perfectas</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-secondary font-bold text-lg">Precio a convenir</span>
+                            <a href="#contacto"><button class="btn-primary px-4 py-2 rounded-full text-sm">Reservar</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#servicios" class="btn-outline-primary px-8 py-3 rounded-full text-lg font-bold inline-block">Ver todos los servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Por qué elegirnos -->
+    <section class="py-16 bg-primary bg-opacity-10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-darker mb-4">¿Por qué elegirnos?</h2>
+            <p class="subtitle text-center text-secondary text-xl mb-12">La excelencia es nuestro estándar</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-md text-center transition-all duration-300 hover:shadow-xl">
+                    <div class="bg-primary bg-opacity-20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-certificate text-3xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-darker mb-3">Profesionales certificados</h3>
+                    <p class="text-dark">Nuestro equipo cuenta con certificaciones internacionales y formación constante en las últimas técnicas.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-md text-center transition-all duration-300 hover:shadow-xl">
+                    <div class="bg-primary bg-opacity-20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-spa text-3xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-darker mb-3">Productos de calidad</h3>
+                    <p class="text-dark">Utilizamos marcas premium y productos hipoalergénicos para garantizar los mejores resultados.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-md text-center transition-all duration-300 hover:shadow-xl">
+                    <div class="bg-primary bg-opacity-20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-hand-sparkles text-3xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-darker mb-3">Ambiente higiénico</h3>
+                    <p class="text-dark">Seguimos estrictos protocolos de limpieza y esterilización para tu seguridad y tranquilidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería Preview -->
+    <section id="galeria" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-darker mb-4">Nuestro Trabajo</h2>
+            <p class="subtitle text-center text-secondary text-xl mb-12">Galería de resultados</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="gallery-item relative overflow-hidden rounded-lg h-48">
+                    <img src="imagenes/frances-manos.jpg" alt="Manicura" class="w-full h-full object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex items-end p-4">
+                        <span class="text-white font-bold">Manicura Francesa</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item relative overflow-hidden rounded-lg h-48">
+                    <img src="imagenes/manicura-francesa-con-dibujos-1.jpg" alt="Pedicura" class="w-full h-full object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex items-end p-4">
+                        <span class="text-white font-bold">Pedicura Spa</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item relative overflow-hidden rounded-lg h-48">
+                    <img src="imagenes/peinado-novia.jpeg" alt="Peinado" class="w-full h-full object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex items-end p-4">
+                        <span class="text-white font-bold">Peinado de Novia</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item relative overflow-hidden rounded-lg h-48">
+                    <img src="imagenes/depilacion-Hindu.jpg" alt="Depilación" class="w-full h-full object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex items-end p-4">
+                        <span class="text-white font-bold">Depilación Hindú</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item relative overflow-hidden rounded-lg h-48">
+                    <img src="https://tahecosmetics.com/trends/wp-content/uploads/2025/02/tipos-mechas-balayage.jpg" alt="Coloración" class="w-full h-full object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex items-end p-4">
+                        <span class="text-white font-bold">Coloración Balayage</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item relative overflow-hidden rounded-lg h-48">
+                    <img src="imagenes/capilar.jpg" alt="Tratamiento" class="w-full h-full object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex items-end p-4">
+                        <span class="text-white font-bold">Tratamiento Capilar</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#galeria-completa" class="btn-outline-primary px-8 py-3 rounded-full text-lg font-bold inline-block">Ver galería completa</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiénes Somos -->
+    <section id="nosotros" class="py-16 bg-darker text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Quiénes Somos</h2>
+            <p class="subtitle text-center text-primary text-xl mb-12">Conoce nuestra esencia</p>
+            
+            <div class="max-w-4xl mx-auto mb-12">
+                <div class="bg-dark p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold text-primary mb-4">Misión</h3>
+                    <p class="mb-6">"Mi misión es transformar los rituales de belleza en experiencias personalizadas y relajantes, llevando la excelencia del salón directamente a tu hogar. Me comprometo a potenciar la confianza y el bienestar de cada cliente a través de servicios profesionales y adaptados a su estilo de vida, ofreciendo comodidad sin sacrificar la calidad, la calidez humana ni la atención detallista. Cada sesión busca no solo embellecer, sino también crear un momento único de autocuidado y renovación."</p>
+                    
+                    <h3 class="text-2xl font-bold text-primary mb-4">Visión</h3>
+                    <p>"Aspiro a ser la marca líder en servicios de belleza a domicilio, reconocida por innovación, cercanía y profesionalismo. Mi visión es revolucionar la industria de la belleza móvil, haciendo accesible un lujo personalizado para todos, mientras construyo una comunidad que prioriza el bienestar integral. En el futuro, planeo expandir mi impacto con un equipo comprometido, prácticas sostenibles y tecnología que facilite la reserva de experiencias únicas, posicionándome como sinónimo de confianza, calidad y cuidado auténtico en cada hogar."</p>
+                </div>
+            </div>
+            
+            <h3 class="text-2xl font-bold text-center text-primary mb-8">Nuestros Valores</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Valor 1 -->
+                <div class="value-card bg-dark p-6 rounded-lg transition-all duration-300">
+                    <div class="text-primary text-3xl mb-4">💖</div>
+                    <h4 class="text-xl font-bold mb-3">Personalización y empatía</h4>
+                    <p class="text-light">Entendemos las necesidades únicas de cada cliente y adaptamos nuestros servicios para reflejar su estilo, preferencias y ritmo de vida.</p>
+                </div>
+                
+                <!-- Valor 2 -->
+                <div class="value-card bg-dark p-6 rounded-lg transition-all duration-300">
+                    <div class="text-primary text-3xl mb-4">✨</div>
+                    <h4 class="text-xl font-bold mb-3">Excelencia profesional</h4>
+                    <p class="text-light">Trabajamos con altos estándares de calidad, formación constante y uso de productos premium, garantizando resultados impecables en cada servicio.</p>
+                </div>
+                
+                <!-- Valor 3 -->
+                <div class="value-card bg-dark p-6 rounded-lg transition-all duration-300">
+                    <div class="text-primary text-3xl mb-4">🕒</div>
+                    <h4 class="text-xl font-bold mb-3">Comodidad y flexibilidad</h4>
+                    <p class="text-light">Priorizamos tu tiempo y espacio: puntualidad, adaptación a horarios y soluciones prácticas para que disfrutes de la belleza sin estrés.</p>
+                </div>
+                
+                <!-- Valor 4 -->
+                <div class="value-card bg-dark p-6 rounded-lg transition-all duration-300">
+                    <div class="text-primary text-3xl mb-4">🌟</div>
+                    <h4 class="text-xl font-bold mb-3">Innovación y creatividad</h4>
+                    <p class="text-light">Incorporamos tendencias, técnicas vanguardistas y tecnología para ofrecer experiencias frescas y memorables, manteniéndonos a la vanguardia del sector.</p>
+                </div>
+                
+                <!-- Valor 5 -->
+                <div class="value-card bg-dark p-6 rounded-lg transition-all duration-300">
+                    <div class="text-primary text-3xl mb-4">🤝</div>
+                    <h4 class="text-xl font-bold mb-3">Integridad y transparencia</h4>
+                    <p class="text-light">Honestidad en precios, recomendaciones y procesos. Construimos relaciones basadas en confianza y respeto mutuo.</p>
+                </div>
+                
+                <!-- Valor 6 -->
+                <div class="value-card bg-dark p-6 rounded-lg transition-all duration-300">
+                    <div class="text-primary text-3xl mb-4">🌿</div>
+                    <h4 class="text-xl font-bold mb-3">Bienestar integral</h4>
+                    <p class="text-light">Promovemos el autocuidado como un ritual esencial, combinando belleza exterior con momentos de relajación y renovación interior.</p>
+                </div>
+                
+                <!-- Valor 7 -->
+                <div class="value-card bg-dark p-6 rounded-lg transition-all duration-300">
+                    <div class="text-primary text-3xl mb-4">🌎</div>
+                    <h4 class="text-xl font-bold mb-3">Sostenibilidad consciente</h4>
+                    <p class="text-light">Optamos por productos eco amigables, reducimos residuos y apoyamos prácticas responsables con el medio ambiente y la comunidad.</p>
+                </div>
+                
+                <!-- Valor 8 -->
+                <div class="value-card bg-dark p-6 rounded-lg transition-all duration-300">
+                    <div class="text-primary text-3xl mb-4">💬</div>
+                    <h4 class="text-xl font-bold mb-3">Cercanía humana</h4>
+                    <p class="text-light">Somos más que un servicio: creamos conexiones genuinas, escuchamos activamente y celebramos la diversidad de cada persona.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-darker mb-4">Contáctanos</h2>
+            <p class="subtitle text-center text-secondary text-xl mb-12">Reserva tu cita hoy mismo</p>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form class="bg-white p-8 rounded-lg shadow-md">
+                        <div class="mb-6">
+                            <label for="nombre" class="block text-dark font-medium mb-2">Nombre completo</label>
+                            <input type="text" id="nombre" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block text-dark font-medium mb-2">Correo electrónico</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="telefono" class="block text-dark font-medium mb-2">Teléfono</label>
+                            <input type="tel" id="telefono" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="servicio" class="block text-dark font-medium mb-2">Servicio de interés</label>
+                            <select id="servicio" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                <option value="">Selecciona un servicio</option>
+                                <option value="manicura">Manicura</option>
+                                <option value="pedicura">Pedicura</option>
+                                <option value="peinados">Peinados</option>
+                                <option value="depilacion">Depilación</option>
+                                <option value="colorimetria">Colorimetría</option>
+                                <option value="tratamientos">Tratamientos capilares</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="mensaje" class="block text-dark font-medium mb-2">Mensaje</label>
+                            <textarea id="mensaje" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary w-full py-3 rounded-full font-bold">Enviar mensaje</button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                        <h3 class="text-2xl font-bold text-darker mb-6">Información de contacto</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-primary bg-opacity-20 p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-darker text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-dark mb-1">Ubicación</h4>
+                                    <p class="text-dark">Servicio a domicilio en toda la ciudad</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-primary bg-opacity-20 p-3 rounded-full mr-4">
+                                    <i class="fas fa-phone-alt text-darker text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-dark mb-1">Teléfono</h4>
+                                    <p class="text-dark">+1 234 567 890</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-primary bg-opacity-20 p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-darker text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-dark mb-1">Correo electrónico</h4>
+                                    <p class="text-dark">contacto@leidybeltran.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-primary bg-opacity-20 p-3 rounded-full mr-4">
+                                    <i class="fas fa-clock text- text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-dark mb-1">Horario de atención</h4>
+                                    <p class="text-dark">Lunes a Viernes: 9:00 am - 7:00 pm</p>
+                                    <p class="text-dark">Sábados: 10:00 am - 4:00 pm</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold text-dark mb-4">Síguenos en redes sociales</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-primary bg-opacity-20 w-10 h-10 rounded-full flex items-center justify-center text- hover:bg-primary hover:text-white transition-all">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-primary bg-opacity-20 w-10 h-10 rounded-full flex items-center justify-center text- hover:bg-primary hover:text-white transition-all">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-primary bg-opacity-20 w-10 h-10 rounded-full flex items-center justify-center text- hover:bg-primary hover:text-white transition-all">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                                <a href="#" class="bg-primary bg-opacity-20 w-10 h-10 rounded-full flex items-center justify-center text- hover:bg-primary hover:text-white transition-all">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-darker text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="imagenes/logoRedondo.png" alt="Logo Leidy Beltran" class="rounded-full h-12 w-12 object-cover border-2 border-primary">
+                        <span class="text-xl font-bold">Leidy Beltran</span>
+                    </div>
+                    <p class="max-w-xs">Transformando tu belleza con pasión y profesionalismo en la comodidad de tu hogar.</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-16">
+                    <div>
+                        <h4 class="font-bold text-lg text-primary mb-4">Enlaces rápidos</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#inicio" class="hover:text-primary transition">Inicio</a></li>
+                            <li><a href="#servicios" class="hover:text-primary transition">Servicios</a></li>
+                            <li><a href="#galeria" class="hover:text-primary transition">Galería</a></li>
+                            <li><a href="#nosotros" class="hover:text-primary transition">Quiénes Somos</a></li>
+                            <li><a href="#contacto" class="hover:text-primary transition">Contacto</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold text-lg text-primary mb-4">Servicios</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="hover:text-primary transition">Manicura</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Pedicura</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Peinados</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Depilación</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Colorimetría</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold text-lg text-primary mb-4">Contacto</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-phone-alt mr-2 mt-1 text-sm"></i>
+                                <span>+1 234 567 890</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-envelope mr-2 mt-1 text-sm"></i>
+                                <span>contacto@leidybeltran.com</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt mr-2 mt-1 text-sm"></i>
+                                <span>Servicio a domicilio</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p>© 2025 Leidy Beltran. Todos los derechos reservados.</p>
+                
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-primary transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-primary transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-primary transition"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="hover:text-primary transition"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Hero slider (simple version)
+        let currentSlide = 0;
+        const slides = [
+            {
+                image: 'imagenes/banner-manicura-y-pedicura.jpg',
+                title: 'Transformamos tu belleza con pasión',
+                subtitle: 'Servicios profesionales de belleza en la comodidad de tu hogar'
+            },
+            {
+                image: 'imagenes/banenr-corte.jpg',
+                title: 'Estilo y elegancia a tu medida',
+                subtitle: 'Peinados perfectos para cualquier ocasión'
+            },
+            {
+                image: 'imagenes/banner-belleza.jpg',
+                title: 'Cuidado profesional para tus manos',
+                subtitle: 'Manicuras que destacan tu personalidad'
+            }
+        ];
+        
+        function changeSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateHeroSlider();
+        }
+        
+        function updateHeroSlider() {
+            const slide = slides[currentSlide];
+            const heroSlide = document.querySelector('.hero-slide');
+            
+            if (heroSlide) {
+                heroSlide.innerHTML = `
+                    <img src="${slide.image}" alt="Servicios de belleza" class="w-full h-full object-cover">
+                    <div class="hero-overlay absolute inset-0 flex items-center justify-center">
+                        <div class="container mx-auto px-4 text-center text-white">
+                            <h1 class="text-4xl md:text-6xl font-bold mb-4">${slide.title}</h1>
+                            <p class="text-xl md:text-2xl mb-8">${slide.subtitle}</p>
+                            <button class="btn-primary px-8 py-3 rounded-full text-lg font-bold">Reserva ahora</button>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+        
+        // Change slide every 5 seconds
+        setInterval(changeSlide, 5000);
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.service-card, .value-card, .gallery-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('fade-in');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
